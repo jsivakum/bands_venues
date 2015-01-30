@@ -27,3 +27,9 @@ delete '/delete_band/:id' do
   band_to_delete.destroy
   redirect '/'
 end
+
+patch '/edit_band/:id' do
+  band_to_edit = Band.find(params[:id])
+  band_to_edit.update(:name => params[:name])
+  redirect back
+end

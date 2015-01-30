@@ -1,6 +1,11 @@
-<h1><%= @band.name %></h1>
+<form action="/edit_band/<%= @band.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="name" value="<%= @band.name %>">
+  <button type = "submit" class = "btn"> Update Name </button>
+</form>
+
+
 <form action="/delete_band/<%= @band.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class ="btn btn-danger">Delete Band</button>
-
 </form>

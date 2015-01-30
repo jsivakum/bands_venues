@@ -1,11 +1,30 @@
+
 <form action="/edit_band/<%= @band.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <input type="text" name="name" value="<%= @band.name %>">
-  <button type = "submit" class = "btn"> Update Name </button>
+  <button type = "submit" class = "btn btn-warning"> Update Name </button>
 </form>
 
 
 <form action="/delete_band/<%= @band.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit" class ="btn btn-danger">Delete Band</button>
+  <button type="submit" class ="btn btn-danger glyphicon glyphicon-remove"> Delete Band</button>
+</form>
+
+<h2><%= @band.name %> Has Played@</h2>
+<% if @band.venues.any? %>
+  <% @band.venues.each do |v| %>
+    <%= v.name %><br>
+  <% end %>
+<% else %>
+  <h3><%= @band.name %> has not played at any venues yet!</h3>
+<% end %>
+
+<h2> Add a Venue to Band's played@ list </h2>
+<form action="/venue/<%= @band.id %>" method="post">
+  <input type = "hidden" name="_method" value="patch">
+  <% @venues.each do |v| %>
+  <input type="checkbox" name="venue_ids[]" value="<%= v.id %>"> <%= v.name %><br>
+  <% end %>
+  <button type="submit" class= " btn btn-success glyphicon glyphicon-plus"> Add</button>
 </form>

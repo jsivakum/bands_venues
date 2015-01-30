@@ -4,6 +4,14 @@
   <button type="submit" class = "btn btn-submit">Submit</button>
 </form>
 
-<@bands.each do |b| %>
-<%= b.name %> <br>
-<% end %>
+
+
+
+
+<h2> Add a Venue to Band's played@ list </h2>
+<form action="/venue" method="post">
+  <% @venues.each do |v| %>
+  <input type="checkbox" name="some_name" value="<%= v.name %>">
+  <% end %>
+  <button type="submit">Update</button>
+</form>

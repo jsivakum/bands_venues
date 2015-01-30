@@ -8,5 +8,17 @@
 <form  action="/band" method="post">
   <input type="text" name="name" placeholder="Enter Name of Band">
 
-  <button type="submit" class = "btn btn-submit">Submit</button>
+  <button type="submit" class = "btn btn-success glyphicon glyphicon-plus">Add Band</button>
 </form>
+
+
+<h1> Venues </h1>
+<form action="/venue" method="post">
+  <input type="text" name="name" placeholder = "Enter name of Venue">
+  <button type="submit" class = "btn btn-success glyphicon glyphicon-plus">Add Venue</button>
+</form>
+<br>
+
+<% @venues.each do |v| %>
+  <%= v.name %> <br>
+<% end %>

@@ -7,4 +7,9 @@ describe(Band) do
     band = Band.new({:name => ""})
     expect(band.save).to eq false
   end
+
+  it("ensures a titleized name") do
+    band = Band.create({:name => "jay"})
+    expect(band.name).to eq "Jay"
+  end
 end

@@ -7,4 +7,9 @@ describe Venue do
     venue = Venue.new({:name => ""})
     expect(venue.save).to eq false
   end
+
+  it "ensures a titleized name" do
+    venue = Venue.create({:name => "cat's tail"})
+    expect(venue.name).to eq "Cat's Tail"
+  end
 end

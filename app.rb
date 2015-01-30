@@ -13,5 +13,10 @@ end
 post('/band') do
   name = params[:name]
   Band.create(:name => name)
-  redirect back 
+  redirect back
+end
+
+get('/band/:id') do
+
+  erb: venue
 end

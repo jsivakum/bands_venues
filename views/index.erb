@@ -1,1 +1,12 @@
-<h1>hello</h1>
+<h1>Bands</h1>
+
+<% @bands.each do |b| %>
+<%= b.name %> <br>
+<% end %>
+
+
+<form  action="/band" method="post">
+  <input type="text" name="name" placeholder="Enter Name of Band">
+
+  <button type="submit" class = "btn btn-submit">Submit</button>
+</form>

@@ -13,5 +13,5 @@ end
 post('/band') do
   name = params[:name]
   Band.create(:name => name)
-  redirect :index
+  redirect back 
 end
